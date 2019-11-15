@@ -24,7 +24,9 @@ namespace testApplication.Services
             {
                 HttpClient httpClient = new HttpClient();
                 List<Employee> employees = new List<Employee>();
-
+                
+                httpClient.DefaultRequestHeaders.Add("User-Agent", "Default app");
+                
                 var response = await httpClient.GetAsync("http://dummy.restapiexample.com/api/v1/employees");
 
                 if (response.IsSuccessStatusCode)
